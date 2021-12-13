@@ -1,5 +1,6 @@
 ﻿using BLL.Dto;
 using DAL.Contexts;
+using DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,6 +83,40 @@ namespace BLL.Services
             {
                 IsSuccess = false,
                 Message = "مخاطب مورد نظر یافت نشد"
+            };
+        }
+
+        /// <summary>
+        /// افزودن مخاطب جدید
+        /// </summary>
+        /// <param name="newContact"></param>
+        /// <returns></returns>
+        public ResultDto AddContact(AddContactDto newContact)
+        {
+            if (string.IsNullOrEmpty(newContact.PhoneNumber))
+            {
+                return new ResultDto
+                {
+                    IsSuccess = false,
+                    Message = "شماره تلفن را وارد نمائید"
+                };
+            }
+            Contact contact = new Contact()
+            {
+                FirstName = newContact.FirstName,
+                LastName = newContact.LastName,
+                PhoneNumber = newContact.PhoneNumber,
+                Company = newContact.Company,
+                Description = newContact.Description,
+            };
+
+            context.Contacts.Add(contact);
+            context.SaveChanges();
+
+            return new ResultDto
+            {
+                IsSuccess = true,
+                Message = $"{contact.FirstName} {contact.LastName} با موفقیت ثبت گردید"
             };
         }
     }

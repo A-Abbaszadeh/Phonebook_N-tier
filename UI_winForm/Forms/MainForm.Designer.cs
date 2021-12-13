@@ -32,6 +32,7 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.showAddContactFormButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contactsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(12, 69);
+            this.deleteButton.Location = new System.Drawing.Point(12, 95);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(133, 40);
             this.deleteButton.TabIndex = 3;
@@ -73,11 +74,22 @@
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // showAddContactFormButton
+            // 
+            this.showAddContactFormButton.Location = new System.Drawing.Point(169, 95);
+            this.showAddContactFormButton.Name = "showAddContactFormButton";
+            this.showAddContactFormButton.Size = new System.Drawing.Size(147, 40);
+            this.showAddContactFormButton.TabIndex = 4;
+            this.showAddContactFormButton.Text = "مخاطب جدید...";
+            this.showAddContactFormButton.UseVisualStyleBackColor = true;
+            this.showAddContactFormButton.Click += new System.EventHandler(this.showAddContactFormButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 669);
+            this.Controls.Add(this.showAddContactFormButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
@@ -102,5 +114,6 @@
         private TextBox searchTextBox;
         private Button searchButton;
         private Button deleteButton;
+        private Button showAddContactFormButton;
     }
 }

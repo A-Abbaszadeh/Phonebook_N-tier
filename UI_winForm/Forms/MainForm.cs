@@ -63,5 +63,12 @@ namespace UI_winForm.Forms
 
             }
         }
+
+        private void showAddContactFormButton_Click(object sender, EventArgs e)
+        {
+            AddContactForm addContactForm = new AddContactForm();
+            addContactForm.ShowDialog();
+            MainForm_Load(null, null);
+        }
     }
 }

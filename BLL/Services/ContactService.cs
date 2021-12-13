@@ -58,5 +58,31 @@ namespace BLL.Services
 
             return searchResult;
         }
+
+        /// <summary>
+        /// حذف مخاطب
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public ResultDto DeleteContact(int Id)
+        {
+            var contact = context.Contacts.Find(Id);
+            if (contact != null)
+            {
+                context.Remove(contact);
+                context.SaveChanges();
+                return new ResultDto
+                {
+                    IsSuccess = true,
+                    Message = $"{contact.FirstName} {contact.LastName} با موفقیت از لیست مخاطبین حذف گردید."
+                };
+            }
+
+            return new ResultDto
+            {
+                IsSuccess = false,
+                Message = "مخاطب مورد نظر یافت نشد"
+            };
+        }
     }
 }

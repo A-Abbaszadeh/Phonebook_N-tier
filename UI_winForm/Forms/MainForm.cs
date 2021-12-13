@@ -47,5 +47,21 @@ namespace UI_winForm.Forms
 
             this.Cursor = Cursors.Default;
         }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            int Id = int.Parse(contactsGridView.CurrentRow.Cells[0].Value.ToString());
+            var deleteResult = _contactService.DeleteContact(Id);
+            if (deleteResult.IsSuccess)
+            {
+                MessageBox.Show(deleteResult.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MainForm_Load(null, null);
+            }
+            else
+            {
+                MessageBox.Show(deleteResult.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
     }
 }

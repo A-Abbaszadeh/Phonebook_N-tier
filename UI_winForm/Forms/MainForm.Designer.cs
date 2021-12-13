@@ -31,6 +31,7 @@
             this.contactsGridView = new System.Windows.Forms.DataGridView();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contactsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,11 +63,22 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(12, 69);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(133, 40);
+            this.deleteButton.TabIndex = 3;
+            this.deleteButton.Text = "حذف";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 669);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.contactsGridView);
@@ -89,5 +101,6 @@
         private DataGridView contactsGridView;
         private TextBox searchTextBox;
         private Button searchButton;
+        private Button deleteButton;
     }
 }

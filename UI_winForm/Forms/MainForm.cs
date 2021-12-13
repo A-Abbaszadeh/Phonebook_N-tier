@@ -70,5 +70,24 @@ namespace UI_winForm.Forms
             addContactForm.ShowDialog();
             MainForm_Load(null, null);
         }
+
+        private void showContactDetailFormButton_Click(object sender, EventArgs e)
+        {
+            ShowContactDetail();
+        }
+
+
+        private void contactsGridView_DoubleClick(object sender, EventArgs e)
+        {
+            ShowContactDetail();
+        }
+
+        private void ShowContactDetail()
+        {
+            int Id = int.Parse(contactsGridView.CurrentRow.Cells[0].Value.ToString());
+
+            ContactDetailForm contactDetailForm = new ContactDetailForm(Id);
+            contactDetailForm.ShowDialog();
+        }
     }
 }

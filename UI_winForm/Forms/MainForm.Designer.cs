@@ -33,6 +33,7 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.showAddContactFormButton = new System.Windows.Forms.Button();
+            this.showContactDetailFormButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contactsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.contactsGridView.RowTemplate.Height = 29;
             this.contactsGridView.Size = new System.Drawing.Size(485, 486);
             this.contactsGridView.TabIndex = 0;
+            this.contactsGridView.DoubleClick += new System.EventHandler(this.contactsGridView_DoubleClick);
             // 
             // searchTextBox
             // 
@@ -84,11 +86,22 @@
             this.showAddContactFormButton.UseVisualStyleBackColor = true;
             this.showAddContactFormButton.Click += new System.EventHandler(this.showAddContactFormButton_Click);
             // 
+            // showContactDetailFormButton
+            // 
+            this.showContactDetailFormButton.Location = new System.Drawing.Point(326, 95);
+            this.showContactDetailFormButton.Name = "showContactDetailFormButton";
+            this.showContactDetailFormButton.Size = new System.Drawing.Size(147, 40);
+            this.showContactDetailFormButton.TabIndex = 5;
+            this.showContactDetailFormButton.Text = "نمایش جزئیات";
+            this.showContactDetailFormButton.UseVisualStyleBackColor = true;
+            this.showContactDetailFormButton.Click += new System.EventHandler(this.showContactDetailFormButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 669);
+            this.Controls.Add(this.showContactDetailFormButton);
             this.Controls.Add(this.showAddContactFormButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.searchButton);
@@ -115,5 +128,6 @@
         private Button searchButton;
         private Button deleteButton;
         private Button showAddContactFormButton;
+        private Button showContactDetailFormButton;
     }
 }

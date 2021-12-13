@@ -119,5 +119,37 @@ namespace BLL.Services
                 Message = $"{contact.FirstName} {contact.LastName} با موفقیت ثبت گردید"
             };
         }
+
+        public ResultDto<GetContactDetailDto> GetContactDetail(int Id)
+        {
+            var contact = context.Contacts.Find(Id);
+
+            if (contact == null)
+            {
+                return new ResultDto<GetContactDetailDto>()
+                {
+                    Data = null,
+                    IsSuccess = false,
+                    Message = "مخاطب مورد نظر یافت نشد"
+                };
+            }
+
+            var data = new GetContactDetailDto()
+            {
+                Id = contact.Id,
+                FirstName = contact.FirstName,
+                LastName = contact.LastName,
+                Company = contact.Company,
+                PhoneNumber = contact.PhoneNumber,
+                Description = contact.Description,
+                CreatedAt = contact.CreatedAt,
+            };
+
+            return new ResultDto<GetContactDetailDto>()
+            {
+                Data = data,
+                IsSuccess = true
+            };
+        }
     }
 }

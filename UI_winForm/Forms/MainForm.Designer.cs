@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.contactsGridView = new System.Windows.Forms.DataGridView();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contactsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,11 +45,30 @@
             this.contactsGridView.Size = new System.Drawing.Size(485, 486);
             this.contactsGridView.TabIndex = 0;
             // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(169, 18);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(304, 30);
+            this.searchTextBox.TabIndex = 1;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(12, 12);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(133, 40);
+            this.searchButton.TabIndex = 2;
+            this.searchButton.Text = "جستجو";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 669);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.contactsGridView);
             this.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -55,15 +76,18 @@
             this.Name = "MainForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.Text = "مدیریت مخاطبین";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.contactsGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private DataGridView contactsGridView;
+        private TextBox searchTextBox;
+        private Button searchButton;
     }
 }

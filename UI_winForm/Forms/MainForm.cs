@@ -37,5 +37,15 @@ namespace UI_winForm.Forms
 
             this.Cursor = Cursors.Default;
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            var contactList = _contactService.SearchContact(searchTextBox.Text);
+            contactsGridView.DataSource = contactList;
+
+            this.Cursor = Cursors.Default;
+        }
     }
 }

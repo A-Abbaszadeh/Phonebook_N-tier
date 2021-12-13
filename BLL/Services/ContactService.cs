@@ -26,5 +26,37 @@ namespace BLL.Services
             }).ToList();
             return contacts;
         }
+
+        /// <summary>
+        /// جستجو در لیست مخاطبین
+        /// </summary>
+        /// <param name="SearchKey"></param>
+        /// <returns></returns>
+        public List<ContactListDto> SearchContact(string SearchKey)
+        {
+            var contactQuery = context.Contacts.AsQueryable();
+            if (!string.IsNullOrEmpty(SearchKey))
+            {
+                contactQuery = contactQuery.Where(
+                    c =>
+                    c.FirstName.Contains(SearchKey)
+                    ||
+                    c.LastName.Contains(SearchKey)
+                    ||
+                    c.PhoneNumber.Contains(SearchKey)
+                    ||
+                    c.Company.Contains(SearchKey)
+                    );
+            }
+
+            var searchResult = contactQuery.Select(c => new ContactListDto
+            {
+                Id = c.Id,
+                FullName = $"{c.FirstName} {c.LastName}",
+                PhoneNumber = c.PhoneNumber
+            }).ToList();
+
+            return searchResult;
+        }
     }
 }

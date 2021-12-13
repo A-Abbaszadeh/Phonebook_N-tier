@@ -1,3 +1,5 @@
+using UI_winForm.Forms;
+
 namespace UI_winForm
 {
     internal static class Program
@@ -9,7 +11,7 @@ namespace UI_winForm
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -34,6 +34,7 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.showAddContactFormButton = new System.Windows.Forms.Button();
             this.showContactDetailFormButton = new System.Windows.Forms.Button();
+            this.showEditContactForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contactsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,9 +69,9 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(12, 95);
+            this.deleteButton.Location = new System.Drawing.Point(12, 125);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(133, 40);
+            this.deleteButton.Size = new System.Drawing.Size(147, 40);
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "حذف";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -78,9 +79,9 @@
             // 
             // showAddContactFormButton
             // 
-            this.showAddContactFormButton.Location = new System.Drawing.Point(169, 95);
+            this.showAddContactFormButton.Location = new System.Drawing.Point(12, 68);
             this.showAddContactFormButton.Name = "showAddContactFormButton";
-            this.showAddContactFormButton.Size = new System.Drawing.Size(147, 40);
+            this.showAddContactFormButton.Size = new System.Drawing.Size(461, 40);
             this.showAddContactFormButton.TabIndex = 4;
             this.showAddContactFormButton.Text = "مخاطب جدید...";
             this.showAddContactFormButton.UseVisualStyleBackColor = true;
@@ -88,7 +89,7 @@
             // 
             // showContactDetailFormButton
             // 
-            this.showContactDetailFormButton.Location = new System.Drawing.Point(326, 95);
+            this.showContactDetailFormButton.Location = new System.Drawing.Point(326, 125);
             this.showContactDetailFormButton.Name = "showContactDetailFormButton";
             this.showContactDetailFormButton.Size = new System.Drawing.Size(147, 40);
             this.showContactDetailFormButton.TabIndex = 5;
@@ -96,11 +97,22 @@
             this.showContactDetailFormButton.UseVisualStyleBackColor = true;
             this.showContactDetailFormButton.Click += new System.EventHandler(this.showContactDetailFormButton_Click);
             // 
+            // showEditContactForm
+            // 
+            this.showEditContactForm.Location = new System.Drawing.Point(169, 125);
+            this.showEditContactForm.Name = "showEditContactForm";
+            this.showEditContactForm.Size = new System.Drawing.Size(147, 40);
+            this.showEditContactForm.TabIndex = 6;
+            this.showEditContactForm.Text = "ویرایش مخاطب";
+            this.showEditContactForm.UseVisualStyleBackColor = true;
+            this.showEditContactForm.Click += new System.EventHandler(this.showEditContactForm_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 669);
+            this.Controls.Add(this.showEditContactForm);
             this.Controls.Add(this.showContactDetailFormButton);
             this.Controls.Add(this.showAddContactFormButton);
             this.Controls.Add(this.deleteButton);
@@ -129,5 +141,6 @@
         private Button deleteButton;
         private Button showAddContactFormButton;
         private Button showContactDetailFormButton;
+        private Button showEditContactForm;
     }
 }

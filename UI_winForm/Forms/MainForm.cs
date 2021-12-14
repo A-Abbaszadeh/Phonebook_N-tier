@@ -89,5 +89,14 @@ namespace UI_winForm.Forms
             ContactDetailForm contactDetailForm = new ContactDetailForm(Id);
             contactDetailForm.ShowDialog();
         }
+
+        private void showEditContactForm_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(contactsGridView.CurrentRow.Cells[0].Value.ToString());
+
+            EditContactForm editContactForm = new EditContactForm(id);
+            editContactForm.ShowDialog();
+            MainForm_Load(null, null);
+        }
     }
 }

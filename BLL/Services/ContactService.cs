@@ -120,6 +120,11 @@ namespace BLL.Services
             };
         }
 
+        /// <summary>
+        /// نمایش کامل اطلاعات مخاطب
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public ResultDto<GetContactDetailDto> GetContactDetail(int Id)
         {
             var contact = context.Contacts.Find(Id);
@@ -149,6 +154,38 @@ namespace BLL.Services
             {
                 Data = data,
                 IsSuccess = true
+            };
+        }
+
+        /// <summary>
+        /// ویرایش مخاطب
+        /// </summary>
+        /// <param name="editContact"></param>
+        /// <returns></returns>
+        public ResultDto EditContact(EditContactDto editContact)
+        {
+            var contact = context.Contacts.Find(editContact.Id);
+
+            if (context == null)
+            {
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "مخاطب مورد نظر یافت نشد"
+                };
+            }
+
+            contact.FirstName = editContact.FirstName;
+            contact.LastName = editContact.LastName;
+            contact.Company = editContact.Company;
+            contact.PhoneNumber = editContact.PhoneNumber;
+            contact.Description = editContact.Description;
+            context.SaveChanges();
+
+            return new ResultDto()
+            {
+                IsSuccess = true,
+                Message = $"اطلاعات {contact.FirstName} {contact.LastName} با موفقیت به ویرایش شد."
             };
         }
     }

@@ -14,17 +14,17 @@ namespace UI_winForm.Forms
     public partial class ContactDetailForm : Form
     {
         private readonly ContactService _contactService;
-        private readonly int contactId;
+        private readonly int ContactId;
         public ContactDetailForm(int contactId)
         {
             InitializeComponent();
             _contactService = new ContactService();
-            this.contactId = contactId;
+            this.ContactId = contactId;
         }
 
         private void ContactDetailForm_Load(object sender, EventArgs e)
         {
-            var contact = _contactService.GetContactDetail(contactId);
+            var contact = _contactService.GetContactDetail(ContactId);
             if (contact.IsSuccess)
             {
                 idLabel.Text = contact.Data.Id.ToString();
